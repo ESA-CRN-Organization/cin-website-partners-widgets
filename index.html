@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Image Slider with 15 Logos</title>
+  <link rel="stylesheet" href="./style-final.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap");
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Lexend", sans-serif;
+      background-color: #ffffff;
+      color: #ffffff;
+    }
+
+    .slider {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide.current {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider">
+    <div class="slide current" style="background: url('01.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('02.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('03.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('04.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('05.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('06.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('07.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('08.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('09.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('10.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('11.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('12.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('13.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('14.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('15.png') no-repeat center/cover;"></div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+
+    function showNextSlide() {
+      slides[currentIndex].classList.remove('current');
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add('current');
+    }
+
+    setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Image Slider with 2 partner slides</title>
+  <link rel="stylesheet" href="./style-final.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap");
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Lexend", sans-serif;
+      background-color: #ffffff;
+      color: #ffffff;
+    }
+
+    .slider {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide.current {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider">
+    <div class="slide current" style="background: url('01.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('partner-1.png') no-repeat center/cover;"></div>
+    <div class="slide" style="background: url('partner-2.png') no-repeat center/cover;"></div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+
+    function showNextSlide() {
+      slides[currentIndex].classList.remove('current');
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add('current');
+    }
+
+    setInterval(showNextSlide, 2500); // Change slide every 3 seconds
+  </script>
+</body>
+
+</html>
